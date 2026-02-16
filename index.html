@@ -136,7 +136,7 @@
 
     .grid3{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap:14px;
     }
     @media (max-width: 900px){ .grid3{grid-template-columns:1fr 1fr} }
@@ -232,7 +232,7 @@
         <div class="cta">
           <a class="btn primary" href="#projektek">Projektjeim</a>
           <a class="btn" href="#kapcsolat">Írj nekem</a>
-          <a class="btn" href="cv-romhanyi-balint.pdf" download>CV letöltése</a>
+          <a class="btn" href="#" download>CV letöltése</a>
         </div>
 
         <div class="sep"></div>
@@ -254,6 +254,15 @@
             <b>📩 E-mail</b>
             <span>balint.romhanyi@gmail.com</span>
           </div>
+	<div class="pill">
+  <b>🚗 Jogosítvány</b>
+  <span>B kategória</span>
+</div>
+<div class="pill">
+  <b>🗣️ Nyelv</b>
+  <span>Angol B2 (középfok)</span>
+</div>
+
         </div>
       </div>
 
@@ -288,7 +297,7 @@
     <section id="projektek">
       <div class="section-title">
         <h2>Projektek</h2>
-        <p>Válassz 3–6 erős munkát</p>
+        <p> </p>
       </div>
 
       <div class="grid3" id="projectsGrid">
@@ -308,37 +317,37 @@
           <div class="list">
             <div class="item">
               <div>
-                <b>Pozíció – Cég</b>
-                <div class="meta">Mit csináltál? 1–2 sor konkrét eredményekkel.</div>
+                <b>Szakmai gyakorlat – Óbudai egyetem</b>
+                <div class="meta">“Valós feladatok, hibakeresés/mérések/dokumentáció támogatása, csapatmunka.”</div>
               </div>
-              <small>2024–Most</small>
+              <small>2024–2025</small>
             </div>
             <div class="item">
               <div>
-                <b>Pozíció – Cég</b>
-                <div class="meta">Pl. +20% konverzió, új design system, automatizálás.</div>
+                <b>Futár – csomagkézbesítés (Egyéb tapasztalat)</b>
+                <div class="meta">Pontos és megbízható munkavégzés, időgazdálkodás, önálló feladatvégzés, ügyfélkommunikáció, terhelhetőség.</div>
               </div>
-              <small>2022–2024</small>
+              <small>2022–2025</small>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <h3 style="margin:0 0 10px">Tanulmány / Tanúsítvány</h3>
+          <h3 style="margin:0 0 10px">Tanulmányok</h3>
           <div class="list">
             <div class="item">
               <div>
-                <b>Intézmény / Kurzus</b>
-                <div class="meta">Fókusz, specializáció, releváns tantárgyak.</div>
+                <b>Villamosmérnök BSc diploma – Óbudai egyetem </b>
+                <div class="meta">Specializáció: Műszer Automatika</div>
               </div>
-              <small>2021–2025</small>
+              <small>2021–2026</small>
             </div>
             <div class="item">
               <div>
-                <b>Tanúsítvány</b>
-                <div class="meta">Pl. Google / Meta / Coursera stb.</div>
+                <b>Középiskolai érettségi - Zrínyi Miklós Gimnázium</b>
+                <div class="meta">Érettségi</div>
               </div>
-              <small>2025</small>
+              <small>2016-2021</small>
             </div>
           </div>
         </div>
@@ -348,21 +357,17 @@
     <section id="kapcsolat">
       <div class="section-title">
         <h2>Kapcsolat</h2>
-        <p>egy kattintással elérhető</p>
+        <p></p>
       </div>
 
       <div class="contact">
         <div class="card">
           <h3 style="margin:0 0 10px">Dolgozzunk együtt</h3>
           <p class="lead">
-            Írj pár sort: milyen típusú megkeresések érdekelnek (pl. webdesign, UI, fejlesztés, branding),
-            mennyi időn belül válaszolsz, stb.
+            Olyan pályakezdő villamosmérnöki lehetőségeket keresek, ahol valós projektekben tanulhatok és fejlődhetek. Nyitott vagyok mérnöki támogató feladatokra, mérésekre, hibakeresésre, dokumentációra és rendszerszintű elemzésre, és angolul is magabiztosan kommunikálok.
           </p>
 
           <div class="cta">
-            <a class="btn primary" href="mailto:hello@pelda.hu?subject=Megkeres%C3%A9s%20-%20Portf%C3%B3li%C3%B3">Email</a>
-            <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn" href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </div>
 
@@ -384,9 +389,9 @@
               <small>📞</small>
             </div>
             <div class="item">
-              <div>
-                <b>Portfólió</b>
-                <div class="meta">domain.hu</div>
+             <div>
+                <b>Microsoft Teams</b>
+                <div class="meta">Romhanyib@stud.uni-obuda.hu</div>
               </div>
               <small>🌐</small>
             </div>
@@ -405,26 +410,13 @@
     // --- Projektadatok: ezeket cseréld a sajátjaidra ---
     const projects = [
       {
-        title: "Projekt 1 – Rövid cím",
-        desc: "1–2 mondat: mi volt a cél, mit csináltál, mi lett az eredmény.",
-        tags: ["UI/UX", "Figma", "Prototípus"],
-        live: "#",
+        title: "Egyetemi szakdolgozat",
+        desc: "A szakdolgozatom az elektromos autótöltők fő típusainak áttekintése és összehasonlítása volt. Rendszereztem az AC/DC töltést, csatlakozókat és töltési módokat, majd gyakorlati szempontok alapján (teljesítmény, kompatibilitás, biztonság, felhasználási terület) következtetéseket és javaslatokat fogalmaztam meg.",
+        tags: ["EV töltés", "AC/DC", "Szabványok"],
+        live: "Romhanyi_Balint_szakdolgozata.pdf",
         repo: "#"
       },
-      {
-        title: "Projekt 2 – Rövid cím",
-        desc: "Konkrétumok: mérőszám, gyorsabb folyamat, jobb felhasználói útvonal, stb.",
-        tags: ["Frontend", "HTML/CSS", "JS"],
-        live: "#",
-        repo: "#"
-      },
-      {
-        title: "Projekt 3 – Rövid cím",
-        desc: "Egy erős mondat arról, miért érdekes: egyedi megközelítés, kihívás, hatás.",
-        tags: ["Brand", "Landing", "SEO"],
-        live: "#",
-        repo: "#"
-      }
+     
     ];
 
     const grid = document.getElementById("projectsGrid");
@@ -434,8 +426,8 @@
         <h3>${p.title}</h3>
         <p>${p.desc}</p>
         <div class="actions">
-          <a href="${p.live}" target="_blank" rel="noreferrer">Megnézem</a>
-          <a href="${p.repo}" target="_blank" rel="noreferrer">Forrás</a>
+          <a href="${p.live}" target="_blank" rel="noreferrer">Szakdolgozat letöltése</a>
+          
         </div>
       </article>
     `).join("");
@@ -458,4 +450,3 @@
   </script>
 </body>
 </html>
-
