@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Portfólió – projektek, tapasztalat, elérhetőség." />
+  <title>Portfólió | Romhányi Bálint</title>
+
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --panel:#101828;
+      --text:#e6edf3;
+      --muted:#9aa4b2;
+      --brand:#7c3aed;
+      --brand2:#22c55e;
+      --line:rgba(255,255,255,.08);
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1080px;
+    }
+    [data-theme="light"]{
+      --bg:#f7f8fb;
+      --panel:#ffffff;
+      --text:#0b1220;
+      --muted:#556070;
+      --line:rgba(10,16,25,.12);
+      --shadow: 0 14px 40px rgba(15,23,42,.10);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(124,58,237,.28), transparent 50%),
+                  radial-gradient(900px 600px at 90% 10%, rgba(34,197,94,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 0 20px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: color-mix(in oklab, var(--bg) 82%, transparent);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:700;
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:12px; height:12px; border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 6px color-mix(in oklab, var(--brand) 25%, transparent);
+    }
+    .links{display:flex; gap:14px; align-items:center}
+    .links a{
+      padding:10px 10px; border-radius:12px; color:var(--muted);
+      transition:.15s;
+    }
+    .links a:hover{color:var(--text); background: color-mix(in oklab, var(--panel) 75%, transparent)}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 14px; border-radius:14px;
+      border:1px solid var(--line);
+      background: color-mix(in oklab, var(--panel) 82%, transparent);
+      box-shadow: var(--shadow);
+      transition:.15s;
+      cursor:pointer;
+      color:var(--text);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{
+      border:0;
+      background: linear-gradient(135deg, var(--brand), color-mix(in oklab, var(--brand2) 55%, var(--brand)));
+    }
+    .btn.ghost{
+      box-shadow:none;
+      background: transparent;
+    }
+
+    header.hero{
+      padding: 48px 0 18px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background: color-mix(in oklab, var(--panel) 86%, transparent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .kicker{color:var(--muted); font-size:14px}
+    h1{margin:10px 0 10px; font-size:42px; line-height:1.1}
+    @media (max-width: 520px){h1{font-size:34px}}
+    .lead{color:var(--muted); font-size:16px; line-height:1.7; margin: 0 0 18px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+
+    .mini{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .pill{
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: color-mix(in oklab, var(--panel) 84%, transparent);
+    }
+    .pill b{display:block; font-size:14px}
+    .pill span{color:var(--muted); font-size:13px}
+
+    section{padding: 18px 0}
+    .section-title{
+      display:flex; align-items:baseline; justify-content:space-between;
+      gap:12px;
+      margin: 8px 0 12px;
+    }
+    .section-title h2{margin:0; font-size:20px}
+    .section-title p{margin:0; color:var(--muted); font-size:13px}
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr 1fr} }
+    @media (max-width: 620px){ .grid3{grid-template-columns:1fr} }
+
+    .project{
+      display:flex; flex-direction:column; gap:10px;
+      min-height: 170px;
+    }
+    .tagrow{display:flex; gap:8px; flex-wrap:wrap}
+    .tag{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px; border-radius:999px;
+      background: color-mix(in oklab, var(--panel) 88%, transparent);
+    }
+    .project h3{margin:2px 0 0; font-size:16px}
+    .project p{margin:0; color:var(--muted); font-size:13px; line-height:1.6}
+    .project .actions{margin-top:auto; display:flex; gap:10px; flex-wrap:wrap}
+    .project .actions a{
+      font-size:13px; color:var(--text);
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--line);
+      background: transparent;
+      transition:.15s;
+    }
+    .project .actions a:hover{
+      background: color-mix(in oklab, var(--panel) 78%, transparent);
+      transform: translateY(-1px);
+    }
+
+    .cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 900px){ .cols{grid-template-columns:1fr} }
+
+    .list{display:flex; flex-direction:column; gap:10px}
+    .item{
+      display:flex; justify-content:space-between; gap:10px;
+      padding:14px; border-radius:16px;
+      border:1px solid var(--line);
+      background: color-mix(in oklab, var(--panel) 88%, transparent);
+    }
+    .item .meta{color:var(--muted); font-size:13px}
+    .item b{display:block}
+    .item small{color:var(--muted)}
+
+    .contact{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){ .contact{grid-template-columns:1fr} }
+
+    footer{
+      padding: 24px 0 38px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .sep{height:1px; background:var(--line); margin: 16px 0}
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Romhányi Bálint</span>
+      </div>
+
+      <div class="links" aria-label="Navigáció">
+        <a href="#projektek">Projektek</a>
+        <a href="#tapasztalat">Tapasztalat</a>
+        <a href="#kapcsolat">Kapcsolat</a>
+        <button class="btn ghost" id="themeBtn" type="button" aria-label="Téma váltása">🌓</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div class="card">
+        <div class="kicker">👋 Üdvözlöm! Én</div>
+        <h1>Romhányi Bálint</h1>
+        <p class="lead">
+          vagyok. <br> Friss villamosmérnök BSc diplomával rendelkezem, és egyéves szakmai gyakorlatom alatt valós projekteken szereztem tapasztalatot.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#projektek">Projektjeim</a>
+          <a class="btn" href="#kapcsolat">Írj nekem</a>
+          <a class="btn" href="#" download>CV letöltése</a>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="mini">
+          <div class="pill">
+            <b>🌍 Lokáció</b>
+            <span>Budapest</span>
+          </div>
+          <div class="pill">
+            <b>💼 Nyitott</b>
+            <span>Állás</span>
+          </div>
+          <div class="pill">
+            <b>📞 Telefonszám </b>
+            <span>+36 70 2744693</span>
+          </div>
+          <div class="pill">
+            <b>📩 E-mail</b>
+            <span>balint.romhanyi@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title" style="margin-top:0">
+          <h2>Rólam</h2>
+          <p></p>
+        </div>
+        <p class="lead" style="margin:0">
+          Frissen végzett villamosmérnök (BSc) vagyok, egy év szakmai gyakorlati tapasztalattal. Erősségem a problémamegoldás: szeretem megtalálni az okot, rendszerszinten gondolkodni és működő megoldást adni. Rugalmasan alkalmazkodom új helyzetekhez és feladatokhoz, legyen szó csapatmunkáról vagy önálló munkáról. Fontos számomra a megbízhatóság és a fejlődés – munka és magánélet terén is.
+        </p>
+
+        <div class="sep"></div>
+
+        <div class="section-title" style="margin-bottom:10px">
+          <h2>Kiemelt készségek</h2>
+          <p></p>
+        </div>
+        <div class="tagrow">
+          <span class="tag">Rendszerszemlélet</span>
+          <span class="tag">Dokumentáció</span>
+          <span class="tag">Alap elektronika</span>
+          <span class="tag">Biztonságtudatos munkavégzés</span>
+          <span class="tag">Csapatmunka / kommunikáció</span>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="projektek">
+      <div class="section-title">
+        <h2>Projektek</h2>
+        <p>Válassz 3–6 erős munkát</p>
+      </div>
+
+      <div class="grid3" id="projectsGrid">
+        <!-- Projektkártyák JS-ből töltve -->
+      </div>
+    </section>
+
+    <section id="tapasztalat">
+      <div class="section-title">
+        <h2>Tapasztalat</h2>
+        <p>munka / tanulmány / mérföldkövek</p>
+      </div>
+
+      <div class="cols">
+        <div class="card">
+          <h3 style="margin:0 0 10px">Munka</h3>
+          <div class="list">
+            <div class="item">
+              <div>
+                <b>Pozíció – Cég</b>
+                <div class="meta">Mit csináltál? 1–2 sor konkrét eredményekkel.</div>
+              </div>
+              <small>2024–Most</small>
+            </div>
+            <div class="item">
+              <div>
+                <b>Pozíció – Cég</b>
+                <div class="meta">Pl. +20% konverzió, új design system, automatizálás.</div>
+              </div>
+              <small>2022–2024</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 10px">Tanulmány / Tanúsítvány</h3>
+          <div class="list">
+            <div class="item">
+              <div>
+                <b>Intézmény / Kurzus</b>
+                <div class="meta">Fókusz, specializáció, releváns tantárgyak.</div>
+              </div>
+              <small>2021–2025</small>
+            </div>
+            <div class="item">
+              <div>
+                <b>Tanúsítvány</b>
+                <div class="meta">Pl. Google / Meta / Coursera stb.</div>
+              </div>
+              <small>2025</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kapcsolat">
+      <div class="section-title">
+        <h2>Kapcsolat</h2>
+        <p>egy kattintással elérhető</p>
+      </div>
+
+      <div class="contact">
+        <div class="card">
+          <h3 style="margin:0 0 10px">Dolgozzunk együtt</h3>
+          <p class="lead">
+            Írj pár sort: milyen típusú megkeresések érdekelnek (pl. webdesign, UI, fejlesztés, branding),
+            mennyi időn belül válaszolsz, stb.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="mailto:hello@pelda.hu?subject=Megkeres%C3%A9s%20-%20Portf%C3%B3li%C3%B3">Email</a>
+            <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 10px">Gyors adatok</h3>
+          <div class="list">
+            <div class="item">
+              <div>
+                <b>Email</b>
+                <div class="meta">balint.romhanyi@gmail.com</div>
+              </div>
+              <small>✉️</small>
+            </div>
+            <div class="item">
+              <div>
+                <b>Telefon</b>
+                <div class="meta">+36 70 2744693</div>
+              </div>
+              <small>📞</small>
+            </div>
+            <div class="item">
+              <div>
+                <b>Portfólió</b>
+                <div class="meta">domain.hu</div>
+              </div>
+              <small>🌐</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="sep"></div>
+      © <span id="year"></span> Név Vezetéknév — Minden jog fenntartva.
+    </footer>
+  </main>
+
+  <script>
+    // --- Projektadatok: ezeket cseréld a sajátjaidra ---
+    const projects = [
+      {
+        title: "Projekt 1 – Rövid cím",
+        desc: "1–2 mondat: mi volt a cél, mit csináltál, mi lett az eredmény.",
+        tags: ["UI/UX", "Figma", "Prototípus"],
+        live: "#",
+        repo: "#"
+      },
+      {
+        title: "Projekt 2 – Rövid cím",
+        desc: "Konkrétumok: mérőszám, gyorsabb folyamat, jobb felhasználói útvonal, stb.",
+        tags: ["Frontend", "HTML/CSS", "JS"],
+        live: "#",
+        repo: "#"
+      },
+      {
+        title: "Projekt 3 – Rövid cím",
+        desc: "Egy erős mondat arról, miért érdekes: egyedi megközelítés, kihívás, hatás.",
+        tags: ["Brand", "Landing", "SEO"],
+        live: "#",
+        repo: "#"
+      }
+    ];
+
+    const grid = document.getElementById("projectsGrid");
+    grid.innerHTML = projects.map(p => `
+      <article class="card project">
+        <div class="tagrow">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="actions">
+          <a href="${p.live}" target="_blank" rel="noreferrer">Megnézem</a>
+          <a href="${p.repo}" target="_blank" rel="noreferrer">Forrás</a>
+        </div>
+      </article>
+    `).join("");
+
+    // --- Év ---
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // --- Sötét/világos mód + mentés ---
+    const themeBtn = document.getElementById("themeBtn");
+    const root = document.documentElement;
+    const saved = localStorage.getItem("theme");
+    if (saved) root.setAttribute("data-theme", saved);
+
+    themeBtn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  </script>
+</body>
+</html>
