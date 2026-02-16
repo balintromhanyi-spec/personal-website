@@ -200,7 +200,31 @@
       font-size:13px;
     }
     .sep{height:1px; background:var(--line); margin: 16px 0}
-  </style>
+  .hero-head{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+}
+
+.hero-text{
+  min-width: 0;
+}
+
+.avatar{
+  width:140px;
+  height:140px;
+  border-radius:14px;      /* szögletesebb, de finoman kerekített */
+  object-fit:cover;
+  border:1px solid var(--line);
+  flex:0 0 auto;
+}
+
+@media (max-width: 520px){
+  .hero-head{ flex-direction:column; }
+  .avatar{ width:160px; height:160px; }
+}
+
+</style>
 </head>
 
 <body>
@@ -223,22 +247,25 @@
   <header class="hero">
     <div class="wrap hero-grid">
       <div class="card">
-        <div class="kicker">👋 Üdvözlöm! Én</div>
         
+	<div class="hero-head">
+  <img class="avatar" src="assets/profil.jpg" alt="Romhányi Bálint portré">
 
-<img src="profil.jpeg" alt="Romhányi Bálint portré"
-     style="width:160px;height:160px;border-radius:0;object-fit:cover;border:1px solid var(--line);margin:10px 0 10px;">
+  <div class="hero-text">
+    <div class="kicker">👋 Üdvözlöm! Én</div>
+    <h1>Romhányi Bálint</h1>
 
-	<h1>Romhányi Bálint</h1>
-        <p class="lead">
-          vagyok. <br> Friss villamosmérnök BSc diplomával rendelkezem, és egyéves szakmai gyakorlatom alatt valós projekteken szereztem tapasztalatot.
-        </p>
+    <p class="lead">
+      Friss villamosmérnök BSc diplomával rendelkezem, és egyéves szakmai gyakorlatom alatt valós projekteken szereztem tapasztalatot.
+    </p>
 
-        <div class="cta">
-          <a class="btn primary" href="#projektek">Projektjeim</a>
-          <a class="btn" href="#kapcsolat">Írj nekem</a>
-          <a class="btn" href="cv-romhanyi-balint.pdf" download="cv-romhanyi-balint.pdf">CV letöltése</a>
-        </div>
+    <div class="cta">
+      <a class="btn primary" href="#projektek">Projektjeim</a>
+      <a class="btn" href="#kapcsolat">Írj nekem</a>
+      <a class="btn" href="Romhanyi_Balint_CV.pdf" download>CV letöltése</a>
+    </div>
+  </div>
+</div>
 
         <div class="sep"></div>
 
